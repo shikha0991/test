@@ -1,0 +1,2 @@
+[windows]
+100.98.8.114 ansible_connection=ssh ansible_user=Administrator ansible_ssh_pass=Dell123 
