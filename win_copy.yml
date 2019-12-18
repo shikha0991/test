@@ -1,0 +1,16 @@
+---
+- hosts: windows
+  tasks:
+
+  - win_copy:
+      src: /root/test/resources/wmic.ps1
+      dest: 'C:\temp\'
+      remote_src: no
+
+  - name: Run remote PowerShell Script
+    win_shell: powershell.exe -ExecutionPolicy ByPass -File C:/temp/wmic.ps1 >> C:\wmiclogs.txt
+
+
+
+
+  
