@@ -1,2 +1,9 @@
+
 [windows]
-100.98.8.114 ansible_connection=ssh ansible_user=Administrator ansible_ssh_pass=Dell123 
+100.98.8.114
+
+[windows:vars]
+ansible_user=Administrator
+ansible_password=Dell123
+ansible_connection=winrm
+ansible_winrm_server_cert_validation=ignore
