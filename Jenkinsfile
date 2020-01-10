@@ -1,21 +1,35 @@
+agentName = "ubuntu_agent"
+agentLabel = "${println 'Right Now the Agent Name is ' + agentName; return agentName}"
+
 pipeline {
-    agent {label 'ubuntu_agent'}
+    agent none
 
     stages {
-        stage('Build') {
+        stage('Prep') {
             steps {
-                echo 'Building..'
+                script {
+                    agentName = "Linux"
+                }
             }
         }
-        stage('Test') {
+        stage('Checking') {
             steps {
-                echo 'Testing..'
+                script {
+                    println agentLabel
+                    println agentName
+                }
             }
         }
-        stage('Deploy') {
+        stage('Final') {
+            agent { label agentLabel }
+
             steps {
-                echo 'Deploying....'
+                script {
+                    println agentLabel
+                    println agentName
+                }
             }
-        }
+    }
+
     }
 }
